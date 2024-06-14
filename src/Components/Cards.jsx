@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Card from './Card';
+import Pagination from './Pagination';
 
 const getId = (url) => {
   const parts = url.split('/');
@@ -8,6 +9,7 @@ const getId = (url) => {
 };
 
 function Cards() {
+
   const page = useSelector((state) => state.pagination.page); // Ensure this is correct
   const [data, setData] = useState([]);
 
@@ -19,21 +21,26 @@ function Cards() {
   }, [page]);
 
   return (
-    <div className='flex flex-wrap justify-center gap-x-2 gap-y-3'>
+   <>
+    <div className='flex flex-wrap justify-center gap-x-2 gap-y-3 mt-2'>
       {data.map((pokemon, index) => {
         const id = getId(pokemon.url);
         const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 
         return (
           <Card
-            key={index}
+            key={id}
+            id={id}
             name={pokemon.name}
             image={imageUrl}
             url={`/display/${id}`}
+            
           />
         );
       })}
     </div>
+    <Pagination/>
+    </>
   );
 }
 
