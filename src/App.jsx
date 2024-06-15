@@ -1,5 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Navbar from './Components/Navbar'
 import Cards from './Components/Cards'
@@ -9,8 +11,9 @@ import Search from './Components/Search';
 
 function App() {
   return (
-    <div className='bg-blue-200'>
     <Router>
+
+    <div className='bg-blue-200'>
     <Navbar/>
 
       <Routes>
@@ -18,9 +21,10 @@ function App() {
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/search" element={<Search/>} />
       </Routes>
-    </Router>
+    <ToastContainer />
   </div>
-  
+  </Router>
+
   )
 }
 
