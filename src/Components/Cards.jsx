@@ -22,7 +22,7 @@ function Cards() {
 
   return (
    <>
-    <div className='flex flex-wrap justify-center gap-x-2 gap-y-3 mt-2'>
+    <div className='flex flex-wrap justify-center gap-x-2 gap-y-3 mt-2 mx-2'>
       {data.map((pokemon, index) => {
         const id = getId(pokemon.url);
         const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;

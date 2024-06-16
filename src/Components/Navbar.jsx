@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Navbar() {
     const [input, setInput] = useState('');
-    const [isAuthenticated, setIsAuthenticated] = useState(true); // This should come from your auth logic
+    const [isAuthenticated, setIsAuthenticated] = useState(false); // This should come from your auth logic
     const [menuOpen, setMenuOpen] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -46,7 +46,7 @@ function Navbar() {
     }
 
     return (
-        <nav className=" border-gray-200 bg-orange-600">
+        <nav className=" border-gray-200 bg-orange-600 sticky top-0 z-10">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between gap-x-2 mx-auto p-2">
                 <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">PokeNavigator</span>
@@ -120,13 +120,13 @@ function Navbar() {
                         ) : (
                             <>
                                 <li>
-                                    <Link to="/signin" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                                        Sign In
+                                    <Link to="/registration" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                        Register
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/signup" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                                        Sign Up
+                                    <Link to="/login" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                        Login
                                     </Link>
                                 </li>
                             </>
